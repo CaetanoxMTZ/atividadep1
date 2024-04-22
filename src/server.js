@@ -1,36 +1,36 @@
+// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const authRoutes = require('./routes/authRoutes');
 const app = express();
-
 const PORT = 3000;
+const path = require('path');
 
-// Conectando a essa gambiarra senseless 
-const dbURI = 'mongodb://localhost:27017/padraoMVC'; 
+require('dotenv').config();
+
+// Conexão ao MongoDB
+const dbURI = 'mongodb://localhost:27017/padraoMVC';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conexão com MongoDB estabelecida'))
-  .catch(err => console.log(err));
+  .catch(err => console.error('Falha ao conectar com MongoDB:', err));
 
-// Middleware para parsear JSON
+// Middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Para parsear corpos de solicitação do tipo form-urlencoded
+app.use(express.static(path.join(__dirname, 'views'))); // Ajuste conforme sua estrutura de diretórios
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true
+}));
 
+// Configuração de rotas
+app.use('/auth', authRoutes); // Todas as rotas de autenticação estão sob '/auth'
 
-app.get('/', (req, res) => {
-    res.send('Hello Cornosssss');
-});
-
-//gambi inicial
-app.get('/users/:userId/books/:bookId', (req, res) => {
-    const { userId, bookId } = req.params;
-    console.log(userId);
-    console.log(bookId);
-    res.send(req.params);
-});
-
-// importando rotas xd xd 
-const usuarioRoutes = require('./routes/usuarioRoutes');
-app.use('/usuarios', usuarioRoutes);
-
-// Observa a baguncinha 
+// Inicialização do servidor
 app.listen(PORT, () => {
-    console.log(`O servidor está funcionando na porta: ${PORT}`);
+    console.log(`Servidor rodando na porta: ${PORT}`);
+    console.log('Para verificar o funcionamento, acesse: http://localhost:' + PORT);
 });

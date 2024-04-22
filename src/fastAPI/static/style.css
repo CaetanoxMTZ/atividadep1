@@ -1,0 +1,193 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/* Input fields styling */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* para garantir que padding não aumente a largura */
+    font-size: 16px;
+    color: #333;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #777;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+}
+
+.button:hover { background-color: #0069d9 }
+
+.button:active {
+    background-color: #005cbf;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+/* Additional styling for form */
+.form-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Align submit button to the right */
+.submit-group {
+    text-align: right;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    
+}
+
+.btn-primary {
+    background-color: #4caf50;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+}
+
+.btn-secundary {
+    background-color: #45a049;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+.form-group {
+    margin: 1rem 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type='text'],
+.form-group input[type='number'],
+.form-group input[type='email'],
+.form-group input[type='password'] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input[type='submit'] {
+    width: auto;
+    padding: 0.7rem 2rem;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group input[type='submit']:hover {
+    opacity: 0.9;
+}
